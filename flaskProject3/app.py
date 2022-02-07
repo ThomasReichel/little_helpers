@@ -1,6 +1,6 @@
 import lib
 from flask_bootstrap import Bootstrap
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for
 
 
 app = Flask(__name__)
@@ -17,8 +17,6 @@ def pw_label():
 
 @app.route('/pw_print', methods=['POST', 'GET'])
 def new_pw():
-    #pw = ""
-    #anzahl = 0
     pw = request.form['pw']
     anzahl = request.form['anzahl']
     output = lib.get_outputString(pw)

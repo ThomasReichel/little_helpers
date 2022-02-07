@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <p>Das Label wird {{anzahl}} mal gedruckt mit dem Passwort: {{pw}} !</p>
-</body>
-</html>
+
+{% endblock %}

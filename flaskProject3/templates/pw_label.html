@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>pw_label</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
             <form action= 'pw_print' method= 'POST'>
             <p>neues Passwort fuer Label eingeben:</p>
             <p><input type='text' name='pw'/></p>
             <p><input type='number' name='anzahl' value='3' min='0' max='5'/></p>
             <p><input type='submit' value='drucken'/></p>
             </form>
-
-</body>
-</html>
+{% endblock %}

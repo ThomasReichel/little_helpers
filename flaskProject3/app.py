@@ -19,7 +19,7 @@ def pw_label():
 def new_pw():
     pw = request.form['pw']
     anzahl = request.form['anzahl']
-    output = lib.get_outputString(pw)
+    output = lib.get_outputstring(pw)
     lib.create_img(output)
     lib.print_label(anzahl)
     return render_template('pw_print.html', pw=pw, anzahl=anzahl)

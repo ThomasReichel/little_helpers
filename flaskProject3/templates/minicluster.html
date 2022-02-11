@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Minicluster:</h3><br>
+    <div class="mini_macInput">
+            <form action= 'minicluster_mac' method= 'POST'>
+                <p><legend>Mac Adresse eingeben</legend></p>
+                <p><input type='text' name='mini_mac' value='' size='16' maxlength='16'/></p>
+                <p><legend>Anzahl der benötigten Label</legend></p>
+                <p><input type='number' name='anzahl' value='3' min='0' max='5'/></p>
+                <p><input type='submit' value='drucken'/></p>
+            </form>
+    </div>
+{% endblock %}

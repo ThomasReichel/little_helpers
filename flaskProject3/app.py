@@ -1,4 +1,12 @@
+import os
+import csv
+import time
+import qrcode
+import re
+from PIL import Image, ImageFont, ImageDraw
 import lib
+import lib_pw
+import lib_mini
 from flask_bootstrap import Bootstrap
 from flask import Flask, request, render_template, url_for
 
@@ -20,9 +28,36 @@ def new_pw():
     pw = request.form['pw']
     anzahl = request.form['anzahl']
     output = lib.get_outputstring(pw)
-    lib.create_img(output)
-    lib.print_label(anzahl)
+    lib_pw.create_img(output)
+    lib_pw.print_label(anzahl)
     return render_template('pw_print.html', pw=pw, anzahl=anzahl)
+
+
+@app.route('/minicluster')
+def minicluster():
+    return render_template('minicluster.html')
+
+
+@app.route('/minicluster_mac')
+def minicluster_mac(datensatz):
+    input_mac = request.form['mini_mac']
+    anzahl = request.form['anzahl']
+    lib_mini.get_deviceMAC(datensatz, input_mac)
+    lib_mini.set_newDaten_MC(datensatz)
+    output = lib_mini.get_outputString_MC(datensatz)
+    lib_mini.create_label_MC(output)
+    lib_mini.print_label(anzahl)
+
+
+@app.route('/minicluster_newLabel')
+def minicluster_newLabel(datensatz):
+    input_mac = request.form['mini_mac']
+    anzahl = request.form['anzahl']
+    lib_mini.get_deviceMAC(datensatz, input_mac)
+    lib_mini.set_newDaten_MC(datensatz)
+    output = lib_mini.get_outputString_MC(datensatz)
+    lib_mini.create_label_MC(output)
+    lib_mini.print_label(anzahl)
 
 if __name__ == '__main__':
     app.run(debug=True)

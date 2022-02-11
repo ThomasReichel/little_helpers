@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import csv
 import time
@@ -29,6 +28,12 @@ def get_lftNr_MC():
 def get_outputString_MC(datensatz):
     stringForSerienNr = "www.lucom.de\n{0}.{1}.18.{2}\n192.168.1.200\n".format(datensatz['device'], datensatz['spezifi'], datensatz['lft_Nr'])
     return stringForSerienNr
+
+
+def get_outputString_MC_newLabel(anzahl, device, spezifi, lft_Nr):
+    stringForNewLabel = "www.lucom.de\n{0}.{1}.18.{2}\n192.168.1.200\n".device, spezifi, lft_Nr
+    return stringForNewLabel
+
 
 
 def set_newDaten_MC(datensatz):

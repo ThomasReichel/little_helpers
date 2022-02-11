@@ -38,6 +38,11 @@ def minicluster():
     return render_template('minicluster.html')
 
 
+@app.route('/minicluster_newLabel')
+def minicluster_newLabel():
+    return render_template('minicluster_newLabel.html')
+
+
 @app.route('/minicluster_mac')
 def minicluster_mac(datensatz):
     input_mac = request.form['mini_mac']
@@ -49,13 +54,13 @@ def minicluster_mac(datensatz):
     lib_mini.print_label(anzahl)
 
 
-@app.route('/minicluster_newLabel')
-def minicluster_newLabel(datensatz):
-    input_mac = request.form['mini_mac']
+@app.route('/minicluster_printNewLabel')
+def minicluster_printNewLabel():
     anzahl = request.form['anzahl']
-    lib_mini.get_deviceMAC(datensatz, input_mac)
-    lib_mini.set_newDaten_MC(datensatz)
-    output = lib_mini.get_outputString_MC(datensatz)
+    device = request.form['device']
+    spezifi = request.form['spezifi']
+    lft_Nr = request.form['lft_Nr']
+    output = lib_mini.get_outputString_MC_newLabel(anzahl, device, spezifi, lft_Nr)
     lib_mini.create_label_MC(output)
     lib_mini.print_label(anzahl)
 

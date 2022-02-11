@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Minicluster:</h3><br>
+    <div class="mini_macInput">
+            <form action= 'minicluster_printNewLabel' method= 'POST'>
+                <p><legend>Daten eingeben</legend></p>
+                <p><legend>Device </legend></p>
+                <p><input type='text' name='device' value='' size='16' maxlength='16'/></p>
+                <p><legend>Spezifikation</legend></p>
+                <p><input type='text' name='spezifi' value='' size='16' maxlength='16'/></p>
+                <p><legend>laufende Nummer</legend></p>
+                <p><input type='text' name='lft_Nr' value='' size='16' maxlength='16'/></p>
+                <p><legend>Anzahl der benötigten Label</legend></p>
+                <p><input type='number' name='anzahl' value='3' min='0' max='5'/></p>
+                <p><input type='submit' value='drucken'/></p>
+            </form>
+    </div>
+{% endblock %}

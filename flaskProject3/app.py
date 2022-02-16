@@ -1,18 +1,17 @@
-import os
-import csv
-import time
-import qrcode
-import re
-from PIL import Image, ImageFont, ImageDraw
-import lib
-import lib_pw
-import lib_mini
+from flask import Flask, request, render_template
 from flask_bootstrap import Bootstrap
-from flask import Flask, request, render_template, url_for
+import pandas as pd   # from pandas import read_csv
 
+import lib
+import lib_mini
+import lib_pw
 
 app = Flask(__name__)
 Bootstrap(app)
+
+df = pd.read_csv("test.csv")
+print(df)
+
 
 
 @app.route('/')

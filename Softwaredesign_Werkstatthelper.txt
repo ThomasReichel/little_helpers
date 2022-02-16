@@ -1,0 +1,72 @@
+import os
+import csv
+import time
+import qrcode
+import re
+from PIL import Image, ImageFont, ImageDraw
+
+
+GUI:
+
+- Login ohne Registrierung
+
+- neutrales Label erstellen:
+    - neues Label erstellen
+
+- FTP:
+    - neues Label
+    - letztes Label nochmal drucken
+
+- Passwort drucken:
+    - neues Label drucken
+
+- Minicluster:
+    - neues Label erstellen
+    - letztes Label nochmal drucken (Pandas auf letzten Eintrag)
+    - eigenes Bild für MC, eventl auf Webseite anzeigen
+
+- X300:
+    - flashen + Beschreibung auf Webseite
+    - neues Label erstellen
+    - letztes Label nochmal drucken
+    
+- L5000:
+    - flashen + Beschreibung auf Webseite
+    - neues Label erstellen
+    - letztes Label nochmal drucken
+    
+- NG:
+    -v2
+        - flashen + Beschreibung auf Webseite
+        - neues Label erstellen
+        - letztes Label nochmal drucken
+    
+    -v3 
+        - flashen + Beschreibung auf Webseite
+        - neues Label erstellen
+        - letztes Label nochmal drucken
+    
+    
+lib:
+    - create_qrCode
+    - getfonts
+    - get_month
+    - get_year
+
+
+
+
+class:
+
+    - print_label
+    - create_img
+    - create_label
+    - get_lftNr --> auf Pandas wechseln
+    - Exceptions
+  
+    
+mc_lib:
+    - fill_Dict
+    - set_newDaten
+    - get_outputString
+    - get_deviceMAC(input)

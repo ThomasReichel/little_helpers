@@ -1,15 +1,10 @@
-import os
-import csv
-import time
-import qrcode
-import re
-from PIL import Image, ImageFont, ImageDraw
-import lib
-import lib_pw
-import lib_mini
+from flask import Flask, request, render_template, url_for, redirect
 from flask_bootstrap import Bootstrap
-from flask import Flask, request, render_template, url_for
+import pandas as pd   # from pandas import read_csv
 
+import lib
+import lib_mini
+import lib_pw
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -17,52 +12,80 @@ Bootstrap(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/pw_label')
+@app.route('/login')
+def login():
+    return render_template("index.html")
+
+@app.route('/leeres_Label')
+def leeres_label():
+    return render_template("leeres_Label.html")
+
+@app.route('/FTP_Label')
+def ftp_label():
+    return render_template("FTP_Label.html")
+
+@app.route('/PW_Label')
 def pw_label():
-    return render_template('pw_label.html')
+    return render_template("PW_Label.html")
 
-@app.route('/pw_print', methods=['POST', 'GET'])
-def new_pw():
-    pw = request.form['pw']
-    anzahl = request.form['anzahl']
-    output = lib.get_outputstring(pw)
-    lib_pw.create_img(output)
-    lib_pw.print_label(anzahl)
-    return render_template('pw_print.html', pw=pw, anzahl=anzahl)
+@app.route('/MC_Label')
+def mc_label():
+    return render_template("MC_Label.html")
 
+@app.route('/MC_altes_Label')
+def mc_altes_label():
+    return render_template("MC_altes_Label.html")
 
-@app.route('/minicluster')
-def minicluster():
-    return render_template('minicluster.html')
+@app.route('/X300_flashen')
+def x300_flashen():
+    return render_template("X300_flashen.html")
 
+@app.route('/X300_Label')
+def x300_label():
+    return render_template("X300_Label.html")
 
-@app.route('/minicluster_newLabel')
-def minicluster_newLabel():
-    return render_template('minicluster_newLabel.html')
+@app.route('/X300_altes_Label')
+def x300_altes_label():
+    return render_template("X300_altes_Label.html")
 
+@app.route('/L5000_flashen')
+def l5000_flashen():
+    return render_template("L5000_flashen.html")
 
-@app.route('/minicluster_mac')
-def minicluster_mac(datensatz):
-    input_mac = request.form['mini_mac']
-    anzahl = request.form['anzahl']
-    lib_mini.get_deviceMAC(datensatz, input_mac)
-    lib_mini.set_newDaten_MC(datensatz)
-    output = lib_mini.get_outputString_MC(datensatz)
-    lib_mini.create_label_MC(output)
-    lib_mini.print_label(anzahl)
+@app.route('/L5000_Label')
+def l5000_label():
+    return render_template("L5000_Label.html")
 
+@app.route('/L5000_altes_Label')
+def l5000_altes_label():
+    return render_template("L5000_altes_Label.html")
 
-@app.route('/minicluster_printNewLabel')
-def minicluster_printNewLabel():
-    anzahl = request.form['anzahl']
-    device = request.form['device']
-    spezifi = request.form['spezifi']
-    lft_Nr = request.form['lft_Nr']
-    output = lib_mini.get_outputString_MC_newLabel(anzahl, device, spezifi, lft_Nr)
-    lib_mini.create_label_MC(output)
-    lib_mini.print_label(anzahl)
+@app.route('/NG_v2_flashen')
+def ng_v2_flashen():
+    return render_template("NG_v2_flashen.html")
+
+@app.route('/NG_v2_Label')
+def ng_v2_label():
+    return render_template("NG_v2_Label.html")
+
+@app.route('/NG_v2_altes_Label')
+def ng_v2_altes_label():
+    return render_template("NG_v2_altes_Label.html")
+
+@app.route('/NG_v3_flashen')
+def ng_v3_flashen():
+    return render_template("NG_v3_flashen.html")
+
+@app.route('/NG_v3_Label')
+def ng_v3_label():
+    return render_template("NG_v3_Label.html")
+
+@app.route('/NG_v3_altes_Label')
+def ng_v3_altes_label():
+    return render_template("NG_v3_altes_Label.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True)

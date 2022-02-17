@@ -1,0 +1,56 @@
+Login ----Login-Seite
+|
+|
+|
+neutrales Label-------Endpoint: "/leeres_Label"  --> Formularfelder action: "/print_leeres_label()": show_label(FTP) + Formular_nochmal_drucken() ---> hierher zurück 
+|
+|
+|
+FTP-------------------Endpoint: "/FTP_Label" --> Formularfelder  action: "/print_ftp_label()": show_label(FTP) + Formular_nochmal_drucken() ---> hierher zurück  
+|                      
+|                    
+|         
+
+|
+Passwort drucken------Endpoint: "/PW_Label" ---> Formularfelder  action: "/print_pw_label()": show_label(PW) + Formular_nochmal_drucken() ---> hierher zurück  
+|
+|
+|
+|
+|
+Minicluster-----------Endpoint: "/MC_Label" ---> Formularfelder   action: "/print_mc_label()": show_label(MC) + Formular_nochmal_drucken() ---> hierher zurück  
+|                        |
+|                     Endpoint: "/MC_altes_Label" ---> Formular für lft-nr  action: print_mc_alt_label()  
+|
+|
+|          
+X300------------------Endpoint: "/X300_flashen" action: flash_x300(): weitere_schritte_text() + Submit: action: "/label_x300" + Formularfelder  action: print_x300_label(): show_label(x300) + Formular_nochmal_drucken() ---> hierher zurück 
+|                         |
+|                       Endpoint: einstieg oben "/label_x300" + Formularfelder  action: "/print_x300_label()": show_label(x300) + Formular_nochmal_drucken() ---> hierher zurück
+|                         |
+|                       Endpoint: "/X300_altes_Label" ---> Formular für lft-nr  action: print_x300_alt_label()
+|
+|
+|
+L5000-----------------Endpoint: "/L5000_flashen" action: flash_l5000(): weitere_schritte_text() + Submit: action: "label_l5000" + Formularfelder  action: print_l5000_label(): show_label(l5000) + Formular_nochmal_drucken() ---> hierher zurück
+|                         |
+|                       Endpoint: einstieg oben "/label_l5000" + Formularfelder  action: "/print_l5000_label()": show_label(l5000) + Formular_nochmal_drucken() ---> hierher zurück
+|                         |
+|                       Endpoint: "/l5000_altes_Label" ---> Formular für lft-nr  action: print_l5000_alt_label()
+|
+|
+|
+Lobix NG-----------v2----Endpoint: "/NG_v2_flashen" action: "/sysinfo_flash_ngv2(): Systemausgaben ---> hierher zurück
+|              |           |
+|              |         Endpoint: "/NG_v2_Label"  action: "/print_ngv2_label()": show_label(ngv2) + Formular_nochmal_drucken() ---> hierher zurück
+|              |           |
+|              |         Endpoint: "/NG_v2_altes_Label" ---> Formular für lft-nr  action: print_ngv2_alt_label()
+|              |
+|              |
+|              |
+|              ----v3----Endpoint: "/NG_v3_flashen" action: "/sysinfo_flash_ngv3(): Systemausgaben ---> hierher zurück
+|                         |
+|                        Endpoint: "/NG_v3_Label"  action: "/print_ngv3_label()": show_label(ngv3) + Formular_nochmal_drucken() ---> hierher zurück
+|                         |
+|                        Endpoint: "/NG_v3_altes_Label" ---> Formular für lft-nr  action: print_ngv3_alt_label()
+

@@ -1,10 +1,10 @@
 from flask import Flask, request, render_template, url_for, redirect
 from flask_bootstrap import Bootstrap
-import pandas as pd   # from pandas import read_csv
+import pandas as pd
 
 import lib
-import lib_mini
-import lib_pw
+from labelhelper import *
+
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -24,7 +24,18 @@ def leeres_label():
 
 @app.route('/FTP_Label')
 def ftp_label():
+    ftp_label = Labelhelper("ftp", 1)
+    x = ftp_label.get_lftNr()
+    print(x)
     return render_template("FTP_Label.html")
+
+@app.route('/print_ftp_label', methods=['POST', 'GET'])
+def print_ftp_label():
+    try:
+        mac = request.form['mac_adresse']
+    except:
+        print("Fehler")
+    return render_template("print_ftp_label.html", user=mac)
 
 @app.route('/PW_Label')
 def pw_label():

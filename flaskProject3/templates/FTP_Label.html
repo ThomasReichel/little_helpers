@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <form action="print_ftp_label" method="POST">
+  <div class="form-group">
+    <label for="MAC_Adresse">MAC Adresse:</label>
+    <input type="text" class="form-control" name="mac_adresse">
+  </div>
+  <button type="submit" class="btn btn-default">drucken</button>
+</form>
+{% endblock %}
